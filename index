@@ -1,33 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lizzy's Jokes and Riddles</title>
-    <!-- Add your CSS link or inline styles here if needed -->
-</head>
-<body>
-    <header>
-        <h1>Welcome to Lizzy's Jokes and Riddles</h1>
-    </header>
+<!-- Add your JavaScript code here -->
+<script>
+    const jokes = [
+        "Why did the chicken cross the road? To get to the other side!",
+        "What do you call a bear with no teeth? A gummy bear!",
+        "Why don't scientists trust atoms? Because they make up everything!",
+        // Add more jokes here
+    ];
 
-    <main>
-        <section>
-            <h2>Jokes</h2>
-            <div id="joke">Click the button to get a joke!</div>
-            <button id="newJokeButton">New Joke</button>
-            <button id="likeButton">Like</button>
-        </section>
+    const riddles = [
+        { question: "I'm tall when I'm young and short when I'm old. What am I?", answer: "A candle" },
+        { question: "What comes once in a minute, twice in a moment, but never in a thousand years?", answer: "The letter 'M'" },
+        // Add more riddles here
+    ];
 
-        <section>
-            <h2>Riddles</h2>
-            <div id="riddle">Click the button to get a riddle!</div>
-            <button id="newRiddleButton">New Riddle</button>
-            <button id="showAnswerButton">Show Answer</button>
-            <div id="answer"></div>
-        </section>
-    </main>
+    const jokeElement = document.getElementById("joke");
+    const newJokeButton = document.getElementById("newJokeButton");
+    const newRiddleButton = document.getElementById("newRiddleButton");
+    const showAnswerButton = document.getElementById("showAnswerButton");
+    const answerElement = document.getElementById("answer");
+    const likeButton = document.getElementById("likeButton");
+    let currentJoke = "";
+    let currentRiddle = "";
 
-    <!-- Add your JavaScript code here -->
-</body>
-</html>
+    function getRandomJoke() {
+        const randomIndex = Math.floor(Math.random() * jokes.length);
+        return jokes[randomIndex];
+    }
+
+    function getRandomRiddle() {
+        const randomIndex = Math.floor(Math.random() * riddles.length);
+        return riddles[randomIndex];
+    }
+
+    newJokeButton.addEventListener("click", () => {
+        currentRiddle = ""; // Clear any previous riddle
+        currentJoke = getRandomJoke();
+        jokeElement.textContent = currentJoke;
+        answerElement.style.display = "none";
+        likeButton.style.display = "inline-block";
+    });
+
+    newRiddleButton.addEventListener("click", () => {
+        currentJoke = ""; // Clear any previous joke
+        const randomRiddle = getRandomRiddle();
+        currentRiddle = randomRiddle.question;
+        jokeElement.textContent = currentRiddle;
+        answerElement.textContent = randomRiddle.answer;
+        answerElement.style.display = "none";
+        likeButton.style.display = "none";
+        showAnswerButton.style.display = "inline-block";
+    });
+
+    showAnswerButton.addEventListener("click", () => {
+        answerElement.style.display = "block";
+    });
+
+    likeButton.addEventListener("click", () => {
+        // You can save the 'currentJoke' or 'currentRiddle' to your preferred storage method here (e.g., an array, local storage).
+        // For this example, we'll just alert that the content has been liked.
+        const likedContent = currentJoke || currentRiddle;
+        alert(`You liked the content: "${likedContent}"\nIt has been saved for the future.`);
+    });
+</script>
