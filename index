@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lizzy's Jokes and Riddles</title>
+    <!-- Add your CSS link or inline styles here if needed -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to Lizzy's Jokes and Riddles</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Jokes</h2>
+            <div id="joke">Click the button to get a joke!</div>
+            <button id="newJokeButton">New Joke</button>
+            <button id="likeButton">Like</button>
+        </section>
+
+        <section>
+            <h2>Riddles</h2>
+            <div id="riddle">Click the button to get a riddle!</div>
+            <button id="newRiddleButton">New Riddle</button>
+            <button id="showAnswerButton">Show Answer</button>
+            <div id="answer"></div>
+        </section>
+    </main>
+
+    <!-- Add your JavaScript code here -->
+</body>
+</html>
